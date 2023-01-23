@@ -65,10 +65,20 @@ describe ('Account', () => {
         expect(account.balance).toEqual(0)
       })
 
-
-
-    // Test 8 - a valid deposit will be accepted when proceeded by an invalid deposit
-
+    // Test 6 - a valid deposit will be accepted when proceeded by an invalid deposit
+    test ('Invalid deposit followed by valid deposit', () => {
+      const account = new Account()
+      // Create a mock validate function
+      const mockValidateFalse = jest.fn().mockReturnValue(false);
+      account.validate = mockValidateFalse;
+      account.deposit({date: "01/01/2022", credit: 5000, debit: 0});
+      // reset mock
+      mockValidateTrue = jest.fn().mockReturnValue(true);
+      account.validate = mockValidateTrue;
+      account.deposit({date: "27/01/2022", credit: 30, debit: 0});
+      expect(account.validate).toHaveBeenCalled();
+      expect(account.balance).toEqual(30)
+    })
   })
 
   describe ('withdraw', () => {
