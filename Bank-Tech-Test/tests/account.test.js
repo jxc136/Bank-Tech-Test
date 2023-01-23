@@ -10,13 +10,24 @@ describe ('Account', () => {
 
     test ('calls the validate method on a deposit', () => {
       const account = new Account()
+      // Create a spy for the validate method
       const spy = jest.spyOn(account, 'validate');
-      account.deposit();
+      account.deposit({date: "01/01/2022", credit: 500.00, debit: 0});
       expect(spy).toHaveBeenCalled();
-
     })
 
-    // Test 1 - it updates the balance with a small deposit value 
+    // Test 2 - it updates the balance with a small deposit value 
+    
+    test ('calls the validate method on a deposit', () => {
+      const account = new Account()
+      // Create a mock validate function
+      const mockValidate = jest.fn().mockReturnValue(true);
+      account.validate = mockValidate;
+      account.deposit({date: "01/01/2022", credit: 500, debit: 0});
+      expect(account.validate).toHaveBeenCalled();
+      expect(account.balance).toEqual(500)
+
+    })
 
     // test ('balance updates with a small deposit', () => {
     //   const account = new Account()

@@ -1,12 +1,18 @@
 class Account {
+  constructor() {
+    this.balance = 0;
+  }
+  
 
   validate(transaction) {
-    console.log(transaction)
+    
   };
   
   deposit(transaction) {
+    console.log(transaction.credit)
+    console.log(this.balance)
     this.validate(transaction);
-    console.log(transaction)
+    this.balance += transaction.credit
   };
 
  
