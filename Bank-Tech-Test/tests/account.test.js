@@ -1,10 +1,29 @@
-require ('../src/account')
+const Account = require ('../src/account')
 
 describe ('Account', () => {
   
   describe ('deposit', () => {
 
+    // Unit tests 
+
+    // test 1 - it calls the validate method
+
+    test ('calls the validate method on a deposit', () => {
+      const account = new Account()
+      const spy = jest.spyOn(account, 'validate');
+      account.deposit();
+      expect(spy).toHaveBeenCalled();
+
+    })
+
     // Test 1 - it updates the balance with a small deposit value 
+
+    // test ('balance updates with a small deposit', () => {
+    //   const account = new Account()
+    //   account.deposit({date: "01/01/2022", credit: 500.00, debit: 0,})
+    //   // Expect 
+
+    // })
 
     // Test 2 - it updates the balance with a valid large deposit value 
 
