@@ -55,7 +55,17 @@ describe ('Account', () => {
 
     // Test 5 - it does not update the balance with an invalid deposit objecy
 
-    // Test 6 - It does not update the balance with a deposit that is too large
+      test ('Invalid deposit isnt added to balance', () => {
+        const account = new Account()
+        // Create a mock validate function
+        const mockValidate = jest.fn().mockReturnValue(false);
+        account.validate = mockValidate;
+        account.deposit({date: "01/01/2022", credit: 5000, debit: 0});
+        expect(account.validate).toHaveBeenCalled();
+        expect(account.balance).toEqual(0)
+      })
+
+
 
     // Test 8 - a valid deposit will be accepted when proceeded by an invalid deposit
 

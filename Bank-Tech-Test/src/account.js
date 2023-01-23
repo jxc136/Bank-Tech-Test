@@ -9,10 +9,10 @@ class Account {
   };
   
   deposit(transaction) {
-    console.log(transaction.credit)
-    console.log(this.balance)
-    this.validate(transaction);
-    this.balance += transaction.credit
+    
+    if (this.validate(transaction) === true){
+      this.balance += transaction.credit
+    }
   };
 
  
