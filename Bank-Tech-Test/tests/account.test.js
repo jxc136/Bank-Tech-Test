@@ -18,7 +18,7 @@ describe ('Account', () => {
 
     // Test 2 - it updates the balance with a small deposit value 
     
-    test ('calls the validate method on a deposit', () => {
+    test ('updates the balance with a small deposit', () => {
       const account = new Account()
       // Create a mock validate function
       const mockValidate = jest.fn().mockReturnValue(true);
@@ -26,25 +26,38 @@ describe ('Account', () => {
       account.deposit({date: "01/01/2022", credit: 500, debit: 0});
       expect(account.validate).toHaveBeenCalled();
       expect(account.balance).toEqual(500)
-
     })
 
-    // test ('balance updates with a small deposit', () => {
-    //   const account = new Account()
-    //   account.deposit({date: "01/01/2022", credit: 500.00, debit: 0,})
-    //   // Expect 
+    // Test 3 - it updates the balance with a valid large deposit value
+    
+    test ('Updates balance with two deposits ', () => {
+      const account = new Account()
+      // Create a mock validate function
+      const mockValidate = jest.fn().mockReturnValue(true);
+      account.validate = mockValidate;
+      account.deposit({date: "01/01/2022", credit: 50, debit: 0});
+      account.deposit({date: "05/01/2022", credit: 430, debit: 0});
+      expect(account.validate).toHaveBeenCalled();
+      expect(account.balance).toEqual(480)
+    })
 
-    // })
+    // Test 4 - it updates the balance when two valid deposits are called
 
-    // Test 2 - it updates the balance with a valid large deposit value 
+    test ('calls the validate method on a large valid deposit', () => {
+      const account = new Account()
+      // Create a mock validate function
+      const mockValidate = jest.fn().mockReturnValue(true);
+      account.validate = mockValidate;
+      account.deposit({date: "01/01/2022", credit: 999, debit: 0});
+      expect(account.validate).toHaveBeenCalled();
+      expect(account.balance).toEqual(999)
+    })
 
-    // Test 3 - it updates the balance when two valid deposits are called
+    // Test 5 - it does not update the balance with an invalid deposit objecy
 
-    // Test 4 - it does not update the balance with an invalid deposit objecy
+    // Test 6 - It does not update the balance with a deposit that is too large
 
-    // Test 5 - It does not update the balance with a deposit that is too large
-
-    // Test 6 - a valid deposit will be accepted when proceeded by an invalid deposit
+    // Test 8 - a valid deposit will be accepted when proceeded by an invalid deposit
 
   })
 
