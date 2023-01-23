@@ -24,3 +24,64 @@ date || credit || debit || balance
 13/01/2023 || 2000.00 || || 3000.00
 10/01/2023 || 1000.00 || || 1000.00
 ```
+
+## Designing the class system
+
+
+## Designing the class interface 
+
+### Account 
+
+```Javascript
+
+class Account {
+
+  constructor(balance) {
+  // stores the balance of the account on initalisation
+  // stores an instance of the transaction log 
+  }
+
+  deposit(transaction){
+    // Calls validator class with transaction
+      // transaction expected to be an object containing values for {credit, debit, amount and date}
+      // If invalid - return error
+      // if valid:
+        // add to balance
+        // call log method
+
+  }
+  withdraw(transaction) {
+    // Calls validator class with transaction
+      // transaction expected to be an object containing values for {credit, debit, amount and date}
+      // If invalid - return error
+      // if valid:
+        // remove from balance
+        // call log method
+  }
+
+  withdraw(transaction) {
+    // Calls validator method with transaction
+      // transaction expected to be an object containing values for {credit, debit, amount and date}
+      // If invalid - return error
+      // if valid:
+        // remove from balance
+        // call log method
+  }
+
+  validateTransaction(transaction) {
+    // calls an instance of the validator class and:
+      // checks funds, if credit > 0 checksdeposit. if debit > 0, checks withdrawal
+  }
+
+  logTransaction(transaction) {
+
+    // calls the TransactionLog class and stores the transaction
+  }
+
+  printStatement(transactionLog) {
+    // calls the printStatement class, with the transaction log class as the argument
+  }
+}
+
+
+```
