@@ -6,7 +6,8 @@ class Account {
 
   validate(transaction) {
     console.log(transaction.debit)
-    if (typeof((transaction.debit)) === "number" && transaction.date) {
+    if (typeof((transaction.debit)) === "number" && 
+    transaction.date && transaction.debit < 1000 ) {
       return true
     }
     else {return false}
