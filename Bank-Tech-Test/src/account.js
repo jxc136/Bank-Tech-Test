@@ -9,9 +9,7 @@ class Account {
     if (typeof((transaction.debit)) === "number" && transaction.date) {
       return true
     }
-    else {
-    return false 
-    }
+    else {return false}
   };
   
   deposit(transaction) {
