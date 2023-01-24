@@ -226,15 +226,21 @@ describe ('Account', () => {
       expect(account.validate(deposit)).toEqual(false)
     })
 
-    // Test 5 - Valid deposit object
+    // Test 5 - Valid withdraw object
 
-    test('deposit below 1000', () => {
+    test('withdraw below 1000', () => {
       const account = new Account 
       const deposit = {date: '05/10/2018', credit: 0, debit: 1000.00}
       expect(account.validate(deposit)).toEqual(true)
     })
 
     // Test 6 - Invalid deposit object
+
+    test('withdraw below 1000', () => {
+      const account = new Account 
+      const withdraw = {date: '05/10/2018', credit: 0, debit: 999.00}
+      expect(account.validate(withdraw)).toEqual(true)
+    })
 
     // Test 7 - Valid Withdraw amount
 
