@@ -39,5 +39,13 @@ describe('PrintStatment', () => {
       
   })
 
-  // 3 - It prints a message if no transactions 
+  // 3 - It prints an error message if no transactions 
+  test ('no transactions to print', () => {
+    const statement = new PrintStatement([])
+    statement.format()
+    expect(() => {
+      (statement.print());
+    }).toThrow('No transactions to print')
+  })
+  
 })
