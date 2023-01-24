@@ -18,9 +18,10 @@ class Account {
 
   withdraw(transaction) {
 
-    this.validate(transaction)
-
-  }
+    if (this.validate(transaction) === true){
+      this.balance -= transaction.credit
+    }
+  };
 
  
 }

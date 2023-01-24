@@ -95,19 +95,46 @@ describe ('Account', () => {
 
     // Test 2 - it updates the balance with a valid small withdraw value 
 
-    // test ('updates the balance with a small deposit', () => {
-    //   const account = new Account()
-    //   // Create a mock validate function
-    //   const mockValidate = jest.fn().mockReturnValue(true);
-    //   account.validate = mockValidate;
-    //   account.withdraw({date: "01/01/2022", credit: 47.00, debit: });
-    //   expect(account.validate).toHaveBeenCalled();
-    //   expect(account.balance).toEqual(500)
-    // })
+    test ('updates the balance with a small deposit', () => {
+      const account = new Account()
+      // Create a mock validate function
+      const mockValidate = jest.fn().mockReturnValue(true);
+      account.validate = mockValidate;
+      // add funds to be deducted
+      account.balance = 100.00
+      account.withdraw({date: "06/07/2022", credit: 47.00, debit: 0 });
+      expect(account.validate).toHaveBeenCalled();
+      expect(account.balance).toEqual(53.00)
+    })
 
     // Test 3 - it updates the balance with a valid large withdraw value 
 
+    test ('updates the balance with a large withdrawl', () => {
+      const account = new Account()
+      // Create a mock validate function
+      const mockValidate = jest.fn().mockReturnValue(true);
+      account.validate = mockValidate;
+      // add funds to be deducted
+      account.balance = 5000.00
+      account.withdraw({date: "09/12/2022", credit: 999.00, debit: 0 });
+      expect(account.validate).toHaveBeenCalled();
+      expect(account.balance).toEqual(4001.00)
+    })
+
     // Test 4 - it updates the balance when two valid Withdrawals are called
+
+    test ('updates the balance with a large withdrawl', () => {
+      const account = new Account()
+      // Create a mock validate function
+      const mockValidate = jest.fn().mockReturnValue(true);
+      account.validate = mockValidate;
+      // add funds to be deducted
+      account.balance = 4000.00
+      account.withdraw({date: "03/18/2022", credit: 456.00, debit: 0 });
+      account.withdraw({date: "04/18/2022", credit: 789.00, debit: 0 });
+      expect(account.validate).toHaveBeenCalled();
+      expect(account.balance).toEqual(2755.00)
+    })
 
     // Test 5 - it does not update the balance with an invalid deposit object
 
