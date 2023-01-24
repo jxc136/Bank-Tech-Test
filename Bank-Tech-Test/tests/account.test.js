@@ -152,6 +152,18 @@ describe ('Account', () => {
 
     // Test 6 - it wont update the balance with a valid withdrawal value that exceeds balance 
 
+    test ('valid withdraw object that exceeds account funds', () => {
+      const account = new Account()
+      // Create a mock validate function
+      const mockValidate = jest.fn().mockReturnValue(true);
+      account.validate = mockValidate;
+       // add funds to be deducted
+      account.balance = 10.00
+      account.withdraw({date: "03/01/2023", credit: 20.00, debit: 0});
+      expect(account.validate).toHaveBeenCalled();
+      expect(account.balance).toEqual(10.00)
+    })
+
     // Test 7 - It does not update the balance with a withdrawal that exceeds withdrawal restrictions
 
     // Test 8 - a valid withdrawwl will be accepted when proceeded by an invalid deposit
