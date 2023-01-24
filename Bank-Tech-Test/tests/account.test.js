@@ -71,7 +71,7 @@ describe ('Account', () => {
       // Create a mock validate function
       const mockValidateFalse = jest.fn().mockReturnValue(false);
       account.validate = mockValidateFalse;
-      account.deposit({date: "01/01/2022", credit: 5000, debit: 0});
+      account.deposit({date: "01/01/2022", credit: 0, debit: 5000});
       // reset mock
       mockValidateTrue = jest.fn().mockReturnValue(true);
       account.validate = mockValidateTrue;
@@ -123,7 +123,7 @@ describe ('Account', () => {
 
     // Test 4 - it updates the balance when two valid Withdrawals are called
 
-    test ('updates the balance with a large withdrawl', () => {
+    test ('updates the balance with two withdrawls', () => {
       const account = new Account()
       // Create a mock validate function
       const mockValidate = jest.fn().mockReturnValue(true);
@@ -136,7 +136,19 @@ describe ('Account', () => {
       expect(account.balance).toEqual(2755.00)
     })
 
-    // Test 5 - it does not update the balance with an invalid deposit object
+    // Test 5 - it does not update the balance with an invalid withdraw object
+
+    test ('Invalid withdrawl isnt taken to balance', () => {
+      const account = new Account()
+      // Create a mock validate function
+      const mockValidate = jest.fn().mockReturnValue(false);
+      account.validate = mockValidate;
+       // add funds to be deducted
+       account.balance = 5000.00
+      account.withdraw({date: "01/02/2023", credit: 5000.00, debit: 0});
+      expect(account.validate).toHaveBeenCalled();
+      expect(account.balance).toEqual(5000.00)
+    })
 
     // Test 6 - it wont update the balance with a valid withdrawal value that exceeds balance 
 
