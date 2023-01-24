@@ -5,7 +5,7 @@ class Account {
   
 
   validate(transaction) {
-    
+    return true
   };
   
   deposit(transaction) {

@@ -189,6 +189,12 @@ describe ('Account', () => {
 
     // Test 1 - Valid deposit object
 
+    test('valid deposit object', () => {
+      const account = new Account;
+      account.deposit({date: "11/12/2021", credit: 0, debit: 10.00})
+      expect(account.validate()).toEqual(true)
+    })
+
     // Test 2 - Invalid deposit object
 
     // Test 3 - Valid deposit amount
