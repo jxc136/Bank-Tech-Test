@@ -1,7 +1,18 @@
 class PrintStatement {
-
+  constructor(log){
+    this.log = log
+    this.statement = ''
+  }
+  format(){    
+      let statement = "date || credit || debit || balance\n";
+      this.log.forEach(transaction => {
+        statement += `${transaction.date} || ${transaction.credit} || ${transaction.debit} || ${transaction.balance}\n`;
+      });
+      this.statement = statement;
+  }
+  
   print(){
-    return 'date: "11/30/2022", credit: 0, debit: 500.55, balance: 500.55'
+    return this.statement
   }
 
 }
