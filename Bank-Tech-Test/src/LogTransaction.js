@@ -4,8 +4,8 @@ class LogTransaction {
     this.log = [];
   }
 
-  add(){
-    this.log.push({date: "04/18/2022", credit: 0, debit: 372.00, balance: 372.00 })
+  add(transaction){
+    this.log.push(transaction)
 
   }
 
