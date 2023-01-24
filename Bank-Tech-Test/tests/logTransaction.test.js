@@ -47,7 +47,5 @@ describe ('LogTransaction', () => {
     expect(log.returnLog()).toEqual(expect.arrayContaining([transaction1, transaction2, transaction3]))
   })
 
-  // Test 5 - Different Date Formats 
-
 
 })

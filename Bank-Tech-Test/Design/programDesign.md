@@ -102,4 +102,17 @@ class TransactionLog {
 
 }
 
+class PrintStatement {
+  constructor(log) {
+    // transactions to be printed 
+    this.log = log
+  }
+
+  print() {
+    // returns statement
+  }
+}
+
+
+
 ```
