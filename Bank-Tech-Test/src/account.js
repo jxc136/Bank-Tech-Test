@@ -5,7 +5,13 @@ class Account {
   
 
   validate(transaction) {
-    return true
+    console.log(transaction.debit)
+    if (typeof((transaction.debit)) === "number") {
+      return true
+    }
+    else {
+    return false 
+    }
   };
   
   deposit(transaction) {

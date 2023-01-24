@@ -191,11 +191,17 @@ describe ('Account', () => {
 
     test('valid deposit object', () => {
       const account = new Account;
-      account.deposit({date: "11/12/2021", credit: 0, debit: 10.00})
-      expect(account.validate()).toEqual(true)
+      const deposit = {date: "11/12/2021", credit: 0, debit: 10.00}
+      expect(account.validate(deposit)).toEqual(true)
     })
 
     // Test 2 - Invalid deposit object
+
+    test('deposit is not a number', () => {
+      const account = new Account
+      const deposit = {date:'02/03/2022', credit: 0, debit: 'string'}
+      expect(account.validate(deposit)).toEqual(false)
+    })
 
     // Test 3 - Valid deposit amount
 
