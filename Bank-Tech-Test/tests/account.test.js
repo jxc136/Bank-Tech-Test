@@ -23,9 +23,9 @@ describe ('Account', () => {
       // Create a mock validate function
       const mockValidate = jest.fn().mockReturnValue(true);
       account.validate = mockValidate;
-      account.deposit({date: "01/01/2022", credit: 500, debit: 0});
+      account.deposit({date: "01/01/2022", credit: 0, debit: 500.00});
       expect(account.validate).toHaveBeenCalled();
-      expect(account.balance).toEqual(500)
+      expect(account.balance).toEqual(500.00)
     })
 
     // Test 3 - it updates the balance with a valid large deposit value
@@ -35,10 +35,10 @@ describe ('Account', () => {
       // Create a mock validate function
       const mockValidate = jest.fn().mockReturnValue(true);
       account.validate = mockValidate;
-      account.deposit({date: "01/01/2022", credit: 50, debit: 0});
-      account.deposit({date: "05/01/2022", credit: 430, debit: 0});
+      account.deposit({date: "01/01/2022", credit: 0, debit: 50.00});
+      account.deposit({date: "05/01/2022", credit: 0, debit: 430.00});
       expect(account.validate).toHaveBeenCalled();
-      expect(account.balance).toEqual(480)
+      expect(account.balance).toEqual(480.00)
     })
 
     // Test 4 - it updates the balance when two valid deposits are called
@@ -48,9 +48,9 @@ describe ('Account', () => {
       // Create a mock validate function
       const mockValidate = jest.fn().mockReturnValue(true);
       account.validate = mockValidate;
-      account.deposit({date: "01/01/2022", credit: 999, debit: 0});
+      account.deposit({date: "01/01/2022", credit: 0, debit: 999.00});
       expect(account.validate).toHaveBeenCalled();
-      expect(account.balance).toEqual(999)
+      expect(account.balance).toEqual(999.00)
     })
 
     // Test 5 - it does not update the balance with an invalid deposit objecy
@@ -75,9 +75,9 @@ describe ('Account', () => {
       // reset mock
       mockValidateTrue = jest.fn().mockReturnValue(true);
       account.validate = mockValidateTrue;
-      account.deposit({date: "27/01/2022", credit: 30, debit: 0});
+      account.deposit({date: "27/01/2022", credit: 0, debit: 30.00});
       expect(account.validate).toHaveBeenCalled();
-      expect(account.balance).toEqual(30)
+      expect(account.balance).toEqual(30.00)
     })
   })
 
@@ -89,23 +89,33 @@ describe ('Account', () => {
       const account = new Account()
       // Create a spy for the validate method
       const spy = jest.spyOn(account, 'validate');
-      account.withdraw({date: "01/01/2022", credit: 500.00, debit: 0});
+      account.withdraw({date: "01/01/2022", credit: 0, debit: 76.00});
       expect(spy).toHaveBeenCalled();
     })
 
-    // Test 1 - it updates the balance with a valid small withdraw value 
+    // Test 2 - it updates the balance with a valid small withdraw value 
 
-    // Test 2 - it updates the balance with a valid large withdraw value 
+    // test ('updates the balance with a small deposit', () => {
+    //   const account = new Account()
+    //   // Create a mock validate function
+    //   const mockValidate = jest.fn().mockReturnValue(true);
+    //   account.validate = mockValidate;
+    //   account.withdraw({date: "01/01/2022", credit: 47.00, debit: });
+    //   expect(account.validate).toHaveBeenCalled();
+    //   expect(account.balance).toEqual(500)
+    // })
 
-    // Test 3 - it updates the balance when two valid Withdrawals are called
+    // Test 3 - it updates the balance with a valid large withdraw value 
 
-    // Test 4 - it does not update the balance with an invalid deposit object
+    // Test 4 - it updates the balance when two valid Withdrawals are called
 
-    // Test 5 - it wont update the balance with a valid withdrawal value that exceeds balance 
+    // Test 5 - it does not update the balance with an invalid deposit object
 
-    // Test 6 - It does not update the balance with a withdrawal that exceeds withdrawal restrictions
+    // Test 6 - it wont update the balance with a valid withdrawal value that exceeds balance 
 
-    // Test 7 - a valid withdrawwl will be accepted when proceeded by an invalid deposit
+    // Test 7 - It does not update the balance with a withdrawal that exceeds withdrawal restrictions
+
+    // Test 8 - a valid withdrawwl will be accepted when proceeded by an invalid deposit
 
   })
 
