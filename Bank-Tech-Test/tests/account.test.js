@@ -246,13 +246,25 @@ describe ('Account', () => {
 
     test('withdraw object is not a number', () => {
       const account = new Account 
-      const withdraw = {date: '05/10/2018', credit: 'NAN', debit: 0}
+      const withdraw = {date: '04/11/2018', credit: 'NAN', debit: 0}
       expect(account.validate(withdraw)).toEqual(false)
     })
 
     // Test 7 - Valid Withdraw amount
 
+    test('withdraw below 1000', () => {
+      const account = new Account 
+      const withdraw = {date: '05/10/2018', credit: 999.00, debit: 0}
+      expect(account.validate(withdraw)).toEqual(true)
+    })
+
     // Test 8 - Invalid Withdraw amount
+
+    test('invalid withdraw amount', () => {
+      const account = new Account 
+      const withdraw = {date: '04/04/2022', credit: 1001.11, debit: 0}
+      expect(account.validate(withdraw)).toEqual(false)
+    })
     
   })
 
