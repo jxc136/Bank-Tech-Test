@@ -203,6 +203,12 @@ describe ('Account', () => {
       expect(account.validate(deposit)).toEqual(false)
     })
 
+    test('no date', () => {
+      const account = new Account
+      const deposit = {credit: 0, debit: 10.00}
+      expect(account.validate(deposit)).toEqual(false)
+    })
+
     // Test 3 - Valid deposit amount
 
     // Test 4 - Invalid deposit amount

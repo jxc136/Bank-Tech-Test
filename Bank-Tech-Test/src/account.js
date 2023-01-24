@@ -6,7 +6,7 @@ class Account {
 
   validate(transaction) {
     console.log(transaction.debit)
-    if (typeof((transaction.debit)) === "number") {
+    if (typeof((transaction.debit)) === "number" && transaction.date) {
       return true
     }
     else {
