@@ -68,6 +68,10 @@ class Account {
         // call log method
   }
 
+  changeBalance() {
+    // Changes the balance if a transaction is successful
+  }
+
   validateTransaction(transaction) {
     // calls an instance of the validator class and:
       // checks funds, if credit > 0 checksdeposit. if debit > 0, checks withdrawal
@@ -83,5 +87,19 @@ class Account {
   }
 }
 
+class TransactionLog {
+  constructor{
+    // houses the array of transaction objects 
+  }
+
+  add() { 
+    // adds a transaction to the array
+  }
+
+  returnLog() {
+    // returns the transaction array
+  }
+
+}
 
 ```
