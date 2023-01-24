@@ -83,6 +83,16 @@ describe ('Account', () => {
 
   describe ('withdraw', () => {
 
+    // Test 1 - it attempts to validate an entry
+
+    test ('calls the validate method on a deposit', () => {
+      const account = new Account()
+      // Create a spy for the validate method
+      const spy = jest.spyOn(account, 'validate');
+      account.withdraw({date: "01/01/2022", credit: 500.00, debit: 0});
+      expect(spy).toHaveBeenCalled();
+    })
+
     // Test 1 - it updates the balance with a valid small withdraw value 
 
     // Test 2 - it updates the balance with a valid large withdraw value 
