@@ -10,10 +10,10 @@ describe ('Account', () => {
 
     test ('calls the validate method on a deposit', () => {
       const account = new Account()
-      // Create a spy for the validate method
-      const spy = jest.spyOn(account, 'validate');
+      // Create a mock for the validate method
+      account.validate = jest.fn()
       account.deposit({date: "01/01/2022", credit: 500.00, debit: 0});
-      expect(spy).toHaveBeenCalled();
+      expect(account.validate).toHaveBeenCalled();
     })
 
     // Test 2 - it updates the balance with a small deposit value 
@@ -87,10 +87,10 @@ describe ('Account', () => {
 
     test ('calls the validate method on a deposit', () => {
       const account = new Account()
-      // Create a spy for the validate method
-      const spy = jest.spyOn(account, 'validate');
+      // Create a mock for the validate method
+      account.validate = jest.fn()
       account.withdraw({date: "01/01/2022", credit: 0, debit: 76.00});
-      expect(spy).toHaveBeenCalled();
+      expect(account.validate).toHaveBeenCalled();
     })
 
     // Test 2 - it updates the balance with a valid small withdraw value 
@@ -187,8 +187,19 @@ describe ('Account', () => {
 
   describe ('validateTransaction', () => {
 
-    
+    test('validator class method used', () => {
+      // Create a mock validator class 
+      const validator = {
+        validate: jest.fn().mockReturnValue(true)
+    }
+      const account = new Account(validator)
+      const transaction = {date: "11/12/2021", credit: 5.00, debit: 0}
+      account.validate(transaction)
+      expect(validator.validate).toHaveBeenCalled();
+  });
   })
+    
+ 
 
   describe ('logTransaction', () => {
 

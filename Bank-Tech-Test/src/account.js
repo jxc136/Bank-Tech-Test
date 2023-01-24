@@ -1,10 +1,14 @@
+const Validator = require ('./Validator')
+
 class Account {
-  constructor() {
+  constructor(validator) {
     this.balance = 0;
+    this.validator = validator
   }
   
 
   validate(transaction) {
+    this.validator.validate(transaction)
     // if (typeof((transaction.debit)) === "number" && 
     // typeof((transaction.credit)) === "number" &&
     // transaction.date && transaction.debit <= 1000
