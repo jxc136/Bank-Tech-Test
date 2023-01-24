@@ -57,7 +57,7 @@ describe ('Validator', () => {
       expect(validator.validate(withdraw)).toEqual(true)
     })
 
-    // // Test 7 - Invalid Withdraw object
+    // Test 7 - Invalid Withdraw object
 
     test('withdraw object is not a number', () => {
       const validator = new Validator
@@ -65,7 +65,7 @@ describe ('Validator', () => {
       expect(validator.validate(withdraw)).toEqual(false)
     })
 
-    // // Test 7 - Valid Withdraw amount
+    // Test 7 - Valid Withdraw amount
 
     test('withdraw below 1000', () => {
       const validator = new Validator 
