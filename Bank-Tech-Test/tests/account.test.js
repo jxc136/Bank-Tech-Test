@@ -269,6 +269,7 @@ describe ('Account', () => {
   })
 
   describe ('logTransaction', () => {
+
     
   })
 
