@@ -186,6 +186,22 @@ describe ('Account', () => {
   })
 
   describe ('validateTransaction', () => {
+
+    // Test 1 - Valid deposit object
+
+    // Test 2 - Invalid deposit object
+
+    // Test 3 - Valid deposit amount
+
+    // Test 4 - Invalid deposit amount
+
+    // Test 5 - Valid deposit object
+
+    // Test 6 - Invalid deposit object
+
+    // Test 7 - Valid Withdraw amount
+
+    // Test 8 - Invalid Withdraw amount
     
   })
 
