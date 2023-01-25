@@ -5,7 +5,7 @@ class PrintStatement {
   }
   format(){    
     let statement = 'date || credit || debit || balance\n';
-    this.log.forEach(transaction => {
+    this.log.reverse().forEach(transaction => {
       statement += `${transaction.date} || ` +
                   `${transaction.credit.toFixed(2)} || ` +
                   `${transaction.debit.toFixed(2)} || ` +
