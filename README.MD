@@ -15,7 +15,8 @@
 **And** a deposit of 2000 on 13-01-2023  
 **And** a withdrawal of 500 on 14-01-2023  
 **When** she prints her bank statement  
-**Then** she would see
+**Then** she would see:
+
 date || credit || debit || balance
 14/01/2023 || || 500.00 || 2500.00
 13/01/2023 || 2000.00 || || 3000.00
@@ -36,13 +37,17 @@ I then created application and UML diagrams to help me visualise how it may look
 
 This allowed me to make any adjustments before outlining the class system in a [design file.](Design/programDesign.md)
 
- Describe how you structured your code. Why did you do it this way?
+ ### Code Structure
 
-## How to Run the program
+ I wanted my program to closely follow the single responsiblity principle, with classses and methods that are decoupled, flexible and scalable. This meant splitting my app into 4 classes:
 
- Describe how to install and run your code and tests.
+ > 1. Account - this would manage how a user interacts with the bank account
+ > 2. Validator - this would validate any transactions a user makes
+ > 3. LogTransaction - this would log a users transaction history
+ > 4. PrintStatement - this would handle formatting and printing bank statements 
 
- Describe the dependencies your code has. What trade-offs did you make when deciding what dependencies to use?
+## How to use
+
 
 ## Extending the program
 
