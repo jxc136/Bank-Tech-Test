@@ -14,7 +14,7 @@ class Account {
     if (validate === true){
       return validate;
     } else {
-      throw Error ('No transactions to print');
+      throw Error ('Invalid Transaction');
     }
    
   }

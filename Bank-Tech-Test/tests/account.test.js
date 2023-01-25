@@ -205,6 +205,18 @@ describe ('Account', () => {
       account.validate(transaction, validator);
       expect(validator.validate).toHaveBeenCalled();
     });
+
+    test('raise error for invalid transaction', () => {
+      const validator = {
+        validate: jest.fn().mockReturnValue(false)
+      };
+      const account = new Account();
+      const transaction = {date: '11/12/2021', credit: 5.00, debit: 0};
+      
+      expect(() => {
+        (account.validate(transaction, validator));
+      }).toThrow('Invalid Transaction');
+    });
   });
 
   describe ('addBalance', () => {
