@@ -18,6 +18,8 @@ class Account {
     if (this.validate(transaction) === true){
       this.balance += transaction.debit;
     }
+    this.addBalance(transaction);
+    this.logTransaction(transaction);
     // need to return an error message otherwise
   }
 
@@ -25,7 +27,8 @@ class Account {
 
     if (this.validate(transaction) === true && this.balance >= transaction.credit){
       this.balance -= transaction.credit;
-      this.logTransaction;
+      this.addBalance(transaction);
+      this.logTransaction(transaction);
     }
   }
 
@@ -34,13 +37,15 @@ class Account {
     return transaction;
   }
 
-  logTransaction(log = this.log, transaction) {
-    log.add(transaction);
+  logTransaction(transaction) {
+    this.log.add(transaction);
   }
 
-  printStatement(statement = new PrintStatement(this.log),) {
-    let printLog = this.log.returnLog;
-    statement.print(printLog);
+  printStatement(statement = new PrintStatement(this.log.returnLog()),) {
+    const printLog = this.log.returnLog();
+    console.log(printLog);
+    console.log(statement.print());
+    return statement.print();
   }
 
  

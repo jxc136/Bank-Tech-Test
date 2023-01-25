@@ -2,6 +2,10 @@
 const Account = require ('../src/Account');
 
 describe ('Account', () => {
+
+  beforeEach(() => {
+    jest.resetAllMocks();
+  });
   
   describe ('deposit', () => {
 
