@@ -1,4 +1,5 @@
 const Validator = require ('./Validator');
+const LogTransaction = require ('./LogTransaction');
 
 class Account {
   constructor() {
@@ -22,7 +23,12 @@ class Account {
 
     if (this.validate(transaction) === true && this.balance >= transaction.credit){
       this.balance -= transaction.credit;
+      this.logTransaction;
     }
+  }
+
+  logTransaction(log = new LogTransaction, transaction) {
+    log.add(transaction);
   }
 
   printStatement() {

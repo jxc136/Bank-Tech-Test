@@ -204,6 +204,15 @@ describe ('Account', () => {
 
   describe ('logTransaction', () => {
 
+    test('logTransaction class method used', () => {
+      const account = new Account;
+      const logTransaction = {
+        add: jest.fn()
+      };
+      const transaction = {date: '11/12/2021', credit: 5.00, debit: 0, balance: 5.00};
+      account.logTransaction(logTransaction,transaction);
+      expect(logTransaction.add).toHaveBeenCalled();
+    });
     
   });
 
