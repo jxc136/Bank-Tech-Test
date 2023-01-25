@@ -10,27 +10,26 @@ class Account {
   
 
   validate(transaction, validator = new Validator()) {
-    return validator.validate(transaction);
+    return validator.validate(this.balance,transaction);
   }
   
   deposit(transaction) {
-    
     if (this.validate(transaction) === true){
       this.balance += transaction.debit;
-    }
-    this.addBalance(transaction);
-    this.logTransaction(transaction);
-    // need to return an error message otherwise
-  }
-
-  withdraw(transaction) {
-
-    if (this.validate(transaction) === true && this.balance >= transaction.credit){
-      this.balance -= transaction.credit;
       this.addBalance(transaction);
       this.logTransaction(transaction);
     }
   }
+ 
+
+  withdraw(transaction) {
+    if (this.validate(transaction) === true && this.balance >= transaction.credit){
+      this.balance -= transaction.credit;
+      this.addBalance(transaction);
+      this.logTransaction(transaction);
+    } 
+  
+  };
 
   addBalance(transaction){
     transaction.balance = this.balance;
