@@ -16,12 +16,10 @@
 **And** a withdrawal of 500 on 14-01-2023  
 **When** she prints her bank statement  
 **Then** she would see
-```
 date || credit || debit || balance
 14/01/2023 || || 500.00 || 2500.00
 13/01/2023 || 2000.00 || || 3000.00
 10/01/2023 || 1000.00 || || 1000.00
-```
 ```
 
 ## My approach 
@@ -34,7 +32,7 @@ I then created application and UML diagrams to help me visualise how it may look
 
 ![Application diagram](Images/bankAppDiagram.png)
 
-![UML diagram](Images/bankAppDiagram.png)
+![UML diagram](Images/bankClassUML.png)
 
 This allowed me to make any adjustments before outlining the class system in a [design file.](Design/programDesign.md)
 
