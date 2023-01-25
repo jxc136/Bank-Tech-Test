@@ -193,9 +193,9 @@ describe ('Account', () => {
       const validator = {
         validate: jest.fn().mockReturnValue(true)
       };
-      const account = new Account(validator);
+      const account = new Account();
       const transaction = {date: '11/12/2021', credit: 5.00, debit: 0};
-      account.validate(transaction);
+      account.validate(transaction, validator);
       expect(validator.validate).toHaveBeenCalled();
     });
   });
