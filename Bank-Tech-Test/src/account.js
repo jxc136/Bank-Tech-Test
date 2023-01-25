@@ -42,9 +42,6 @@ class Account {
   }
 
   printStatement(statement = new PrintStatement(this.log.returnLog()),) {
-    const printLog = this.log.returnLog();
-    console.log(printLog);
-    console.log(statement.print());
     return statement.print();
   }
 

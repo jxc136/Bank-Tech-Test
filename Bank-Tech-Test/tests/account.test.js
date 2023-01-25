@@ -224,11 +224,11 @@ describe ('Account', () => {
 
     test('logTransaction class method used', () => {
       const account = new Account;
-      const logTransaction = {
+      account.log = logTransaction = {
         add: jest.fn()
       };
       const transaction = {date: '11/12/2021', credit: 5.00, debit: 0, balance: 5.00};
-      account.logTransaction(logTransaction,transaction);
+      account.logTransaction(transaction);
       expect(logTransaction.add).toHaveBeenCalled();
     });
     
@@ -240,6 +240,11 @@ describe ('Account', () => {
       const printStatement = {
         print: jest.fn().mockReturnValue('success')
       };
+      
+      account.log = {
+        returnLog: jest.fn().mockReturnValue([{date: '11/12/2021', credit: 5.00, debit: 0, balance: 5.00}])
+      };
+        
       account.printStatement(printStatement);
       expect(printStatement.print).toHaveBeenCalled();
     });
