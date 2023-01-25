@@ -1,13 +1,17 @@
 class Validator {
 
-  validate(transaction){
-    if (typeof((transaction.debit)) === 'number' && 
-    typeof((transaction.credit)) === 'number' &&
-    transaction.date && transaction.debit <= 1000
-    && transaction.credit <= 1000 ) {
+  validate(transaction) {
+    const validDebit = typeof(transaction.debit) === 'number';
+    const validCredit = typeof(transaction.credit) === 'number';
+    const hasDate = transaction.date;
+    const validDebitAmount = transaction.debit <= 1000;
+    const validCreditAmount = transaction.credit <= 1000;
+
+    if (validDebit && validCredit && hasDate && validDebitAmount && validCreditAmount) {
       return true;
+    } else {
+      return false;
     }
-    else {return false;}
   }
 }
 module.exports = Validator;
