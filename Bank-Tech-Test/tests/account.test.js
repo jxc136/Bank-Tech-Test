@@ -217,7 +217,15 @@ describe ('Account', () => {
   });
 
   describe ('printStatement', () => {
-    
+    test('printStatement class method used', () => {
+      const account = new Account;
+      const printStatement = {
+        print: jest.fn().mockReturnValue('success')
+      };
+      const log = jest.fn();
+      account.printStatement(printStatement,log);
+      expect(printStatement.print).toHaveBeenCalled();
+    });
   });
 
 });

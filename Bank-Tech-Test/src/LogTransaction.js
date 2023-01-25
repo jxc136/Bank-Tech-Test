@@ -6,7 +6,6 @@ class LogTransaction {
 
   add(transaction){
     this.log.push(transaction);
-
   }
 
   returnLog(){

@@ -1,9 +1,11 @@
 const Validator = require ('./Validator');
 const LogTransaction = require ('./LogTransaction');
+const PrintStatement = require('./PrintStatement');
 
 class Account {
   constructor() {
     this.balance = 0;
+    this.log = new LogTransaction;
   }
   
 
@@ -27,12 +29,13 @@ class Account {
     }
   }
 
-  logTransaction(log = new LogTransaction, transaction) {
+  logTransaction(log = this.log, transaction) {
     log.add(transaction);
   }
 
-  printStatement() {
-    throw Error ('No transactions to print');
+  printStatement(statement = new PrintStatement(this.log),) {
+    let printLog = this.log.returnLog;
+    statement.print(printLog);
   }
 
  
