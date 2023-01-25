@@ -3,7 +3,7 @@ const Account = require('../src/Account');
 
 describe ('integration', () => {
   
-  test('balance is logged and appended to a transaction', () => {
+  test('successfully logs and prints a number of transactions', () => {
     const account = new Account;
     account.deposit({date: '01/01/2022', credit: 0.00, debit: 500.00});
     account.withdraw({date: '02/01/2022', credit: 50.00, debit: 0.00});

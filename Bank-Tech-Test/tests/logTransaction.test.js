@@ -5,8 +5,6 @@ require ('../src/LogTransaction');
 
 describe ('LogTransaction', () => {
 
-  // Test 1 - No transactions 
-
   test ('Logs no transactions', () => {
     log = new LogTransaction;
     
@@ -15,16 +13,12 @@ describe ('LogTransaction', () => {
     }).toThrow('No transactions recorded');
   });
 
-  // Test 2 - One Transaction 
-
   test ('One valid transaction added', () => {
     log = new LogTransaction;
     const transaction = {date: '04/18/2022', credit: 0, debit: 372.00, balance: 372.00 };
     log.add(transaction);
     expect(log.returnLog()).toEqual([transaction]);
   });
-
-  // Test 3 - Two Transactions
 
   test ( 'Two valid transactions added', () => {
     log = new LogTransaction;
@@ -34,8 +28,6 @@ describe ('LogTransaction', () => {
     log.add(transaction2);
     expect(log.returnLog()).toEqual(expect.arrayContaining([transaction1, transaction2]));
   });
-
-  // Test 4 - Three Transactions 
 
   test ( 'Two valid transactions added', () => {
     log = new LogTransaction;
@@ -47,6 +39,5 @@ describe ('LogTransaction', () => {
     log.add(transaction3);
     expect(log.returnLog()).toEqual(expect.arrayContaining([transaction1, transaction2, transaction3]));
   });
-
 
 });
