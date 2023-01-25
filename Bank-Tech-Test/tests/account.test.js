@@ -219,7 +219,6 @@ describe ('Account', () => {
     
   });
  
-
   describe ('logTransaction', () => {
 
     test('logTransaction class method used', () => {

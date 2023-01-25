@@ -11,7 +11,7 @@ describe('PrintStatment', () => {
     const log = [{date: '30/11/2022', credit: 0, debit: 333.33, balance: 333.33 }];
     const statement = new PrintStatement(log);
     const expectedStatement =
-    'date || credit || debit || balance\n30/11/2022 || 0 || 333.33 || 333.33\n';
+    'date || credit || debit || balance\n30/11/2022 || 0.00 || 333.33 || 333.33\n';
     expect(statement.print()).toBe(expectedStatement);
       
   });
@@ -25,7 +25,7 @@ describe('PrintStatment', () => {
       {date: '07/07/2022', credit: 0, debit: 222.22, balance: 444.44 }];
     const statement = new PrintStatement(log);
     const expectedStatement =
-    'date || credit || debit || balance\n30/11/2022 || 0 || 333.33 || 333.33\n05/06/2022 || 111.11 || 0 || 222.22\n07/07/2022 || 0 || 222.22 || 444.44\n';
+    'date || credit || debit || balance\n30/11/2022 || 0.00 || 333.33 || 333.33\n05/06/2022 || 111.11 || 0.00 || 222.22\n07/07/2022 || 0.00 || 222.22 || 444.44\n';
     statement.format();
     expect(statement.print()).toBe(expectedStatement);
       
@@ -44,7 +44,7 @@ describe('PrintStatment', () => {
   test ('formats a statement before printng', () => {
     const statement = new PrintStatement([{date: '30/11/2022', credit: 0, debit: 333.33, balance: 333.33} ]);
     const expectedStatement =
-    'date || credit || debit || balance\n30/11/2022 || 0 || 333.33 || 333.33\n';
+    'date || credit || debit || balance\n30/11/2022 || 0.00 || 333.33 || 333.33\n';
     expect(statement.print()).toBe(expectedStatement);
     
   });

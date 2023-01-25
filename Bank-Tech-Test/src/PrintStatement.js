@@ -6,7 +6,7 @@ class PrintStatement {
   format(){    
     let statement = 'date || credit || debit || balance\n';
     this.log.forEach(transaction => {
-      statement += `${transaction.date} || ${transaction.credit} || ${transaction.debit} || ${transaction.balance}\n`;
+      statement += `${transaction.date} || ${transaction.credit.toFixed(2)} || ${transaction.debit.toFixed(2)} || ${transaction.balance.toFixed(2)}\n`;
     });
     this.statement = statement;
   }
