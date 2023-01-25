@@ -5,13 +5,13 @@ class LogTransaction {
   }
 
   add(transaction){
-    this.log.push(transaction)
+    this.log.push(transaction);
 
   }
 
   returnLog(){
     if (this.log.length === 0 ) {
-      throw ('No transactions recorded')
+      throw ('No transactions recorded');
     } else {
       return this.log;
     }
