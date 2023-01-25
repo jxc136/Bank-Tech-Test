@@ -4,29 +4,20 @@ const PrintStatement = require('../src/PrintStatement');
 require('../src/PrintStatement');
 
 describe('PrintStatment', () => {
-  // 1 - It prints a statment with a single transaction
-
-  test('print a single transaction', () => {
-    const log = 'date: "11/30/2022", credit: 0, debit: 500.55, balance: 500.55';
-    const statement = new PrintStatement(log);
-    statement.statement = log;
-    expect(statement.print()).toBe('date: "11/30/2022", credit: 0, debit: 500.55, balance: 500.55');
-  });
-
-  // 2 - formats a single transaction
+  
+  // 1 - formats and prints a single transaction
 
   test('format and print a single transaction', () => {
     const log = [{date: '30/11/2022', credit: 0, debit: 333.33, balance: 333.33 }];
     const statement = new PrintStatement(log);
     const expectedStatement =
     'date || credit || debit || balance\n30/11/2022 || 0 || 333.33 || 333.33\n';
-    statement.format();
     expect(statement.print()).toBe(expectedStatement);
       
   });
 
 
-  // 3 - It prints a statment with multiple transactions 
+  // 2 - It prints a statment with multiple transactions 
 
   test('format and print 3 transaction', () => {
     const log = [{date: '30/11/2022', credit: 0, debit: 333.33, balance: 333.33 },
@@ -42,11 +33,21 @@ describe('PrintStatment', () => {
 
   // 3 - It prints an error message if no transactions 
   test ('no transactions to print', () => {
-    const statement = new PrintStatement([]);
-    statement.format();
+    const log = [];
+    const statement = new PrintStatement(log);
     expect(() => {
       (statement.print());
     }).toThrow('No transactions to print');
   });
+
+  // 4 - It formats a statement before printng
+  test ('formats a statement before printng', () => {
+    const statement = new PrintStatement([{date: '30/11/2022', credit: 0, debit: 333.33, balance: 333.33} ]);
+    const expectedStatement =
+    'date || credit || debit || balance\n30/11/2022 || 0 || 333.33 || 333.33\n';
+    expect(statement.print()).toBe(expectedStatement);
+    
+  });
+  
   
 });

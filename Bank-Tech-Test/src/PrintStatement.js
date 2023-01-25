@@ -12,7 +12,8 @@ class PrintStatement {
   }
   
   print(){
-    if (this.statement === '' || this.statement === 'date || credit || debit || balance\n') {
+    this.format();
+    if (this.statement === 'date || credit || debit || balance\n') {
       throw Error ('No transactions to print');
     }
     return this.statement;
