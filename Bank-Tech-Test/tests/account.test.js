@@ -9,7 +9,10 @@ describe ('Account', () => {
   
   describe ('deposit', () => {
 
-    // Unit tests 
+    test('Programme initalizes', () => {
+      const account = new Account;
+      expect(account.balance).toBe(0);
+    });
 
     // Test 1 - it calls the validate method
 
