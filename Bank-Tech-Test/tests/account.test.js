@@ -199,7 +199,18 @@ describe ('Account', () => {
       expect(validator.validate).toHaveBeenCalled();
     });
   });
+
+  describe ('addBalance', () => {
+
+    test('the current balance is added to a transaction', () => {
+      const account = new Account;
+      account.balance = 500.00;
+      const transaction = {date: '02/12/2021', credit: 5.00, debit: 0};
+      const formattedTransaction = {date: '02/12/2021', credit: 5.00, debit: 0, balance: 500.00};
+      expect(account.addBalance(transaction)).toStrictEqual(formattedTransaction);
+    });
     
+  });
  
 
   describe ('logTransaction', () => {
@@ -222,8 +233,7 @@ describe ('Account', () => {
       const printStatement = {
         print: jest.fn().mockReturnValue('success')
       };
-      const log = jest.fn();
-      account.printStatement(printStatement,log);
+      account.printStatement(printStatement);
       expect(printStatement.print).toHaveBeenCalled();
     });
   });

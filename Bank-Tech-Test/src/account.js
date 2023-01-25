@@ -29,6 +29,11 @@ class Account {
     }
   }
 
+  addBalance(transaction){
+    transaction.balance = this.balance;
+    return transaction;
+  }
+
   logTransaction(log = this.log, transaction) {
     log.add(transaction);
   }
