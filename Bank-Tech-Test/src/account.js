@@ -10,7 +10,13 @@ class Account {
   
 
   validate(transaction, validator = new Validator()) {
-    return validator.validate(this.balance,transaction);
+    const validate = validator.validate(this.balance,transaction);
+    if (validate === true){
+      return validate;
+    } else {
+      throw Error ('No transactions to print');
+    }
+   
   }
   
   deposit(transaction) {
@@ -28,8 +34,7 @@ class Account {
       this.addBalance(transaction);
       this.logTransaction(transaction);
     } 
-  
-  };
+  }
 
   addBalance(transaction){
     transaction.balance = this.balance;
