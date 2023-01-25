@@ -48,9 +48,24 @@ This allowed me to make any adjustments before outlining the class system in a [
 
 ## How to use
 
+>1. Clone this repository
+>2. Install dependencies with `npm install`
+>3. Run tests with `npx jest`
+
+### Tests
+
+The programme contains two kinds of tests:
+* Unit tests for each class, divided into test blocks for each method
+* An integration test 
 
 ## Extending the program
 
- Describe the extensions you would add if you had more time.
+If I was extending the programme, I would add the following functionality:
 
- Spelling and grammar.
+- Currency handling: present statements in a currency format (could be GBP or a setting a user could input)
+- Add user interactivity:
+  - Allow user to create and access account
+  - encrpyt and store account information
+  - connect to an account database
+- Add a user interface 
+  
