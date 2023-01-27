@@ -46,6 +46,40 @@ This allowed me to make any adjustments before outlining the class system in a [
  > 3. LogTransaction - this would log a users transaction history
  > 4. PrintStatement - this would handle formatting and printing bank statements 
 
+ ### Program example:
+ 
+ In the below example, a user is running the program in Node. When they program is initialised, the balance is set to 0 and a new instance of the `LogTransaction` class is created to track the user's transactions. 
+ 
+```Javascript
+ const Account = require('./Account');
+ const myAccount = new Account();
+ 
+ const depositTransaction = {
+  date: "2022-01-23",
+  debit: 500,
+  credit: 0
+}
+
+const withdrawTransaction = {
+  date: "2022-01-24",
+  debit: 0,
+  credit: 250
+}
+
+myAccount.deposit(depositTransaction);
+myAccount.withdraw(withdrawTransaction);
+
+console.log(myAccount.printStatement());
+```
+ They make a single deposit and a single withdraw. When each of these transactions is called, the `add` method is called and the transaction is formatted and stored in the log.
+
+ When the user calls the `printStatement` method, a new instance of the `printStatement` class is created, and the following statment is printed to the console:
+
+ ```Javascript
+date || credit || debit || balance
+2022-01-24 ||  || 250.00 || 250.00
+2022-01-23 ||  ||  || 500.00
+ ```
 ## How to use
 
 >1. Clone this repository
