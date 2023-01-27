@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
-const LogTransaction = require('../src/LogTransaction');
+const LogTransaction = require('../src/logTransaction');
 
-require ('../src/LogTransaction');
+require ('../src/logTransaction');
 
 describe ('LogTransaction', () => {
 
-  test ('Logs no transactions', () => {
+  test('Logs no transactions', () => {
     log = new LogTransaction;
     
     expect(() => {
@@ -13,14 +13,14 @@ describe ('LogTransaction', () => {
     }).toThrow('No transactions recorded');
   });
 
-  test ('One valid transaction added', () => {
+  test('One valid transaction added', () => {
     log = new LogTransaction;
     const transaction = {date: '04/18/2022', credit: 0, debit: 372.00, balance: 372.00 };
     log.add(transaction);
     expect(log.returnLog()).toEqual([transaction]);
   });
 
-  test ( 'Two valid transactions added', () => {
+  test( 'Two valid transactions added', () => {
     log = new LogTransaction;
     const transaction1 = {date: '11/30/2022', credit: 0, debit: 500.55, balance: 500.55 };
     const transaction2 = {date: '11/30/2022', credit: 150.50, debit: 0, balance: 350.05 };
@@ -31,7 +31,7 @@ describe ('LogTransaction', () => {
     expect(log.returnLog()).toEqual(expect.arrayContaining([newTransaction1, newTransaction2]));
   });
 
-  test ( 'Two valid transactions added', () => {
+  test( 'Two valid transactions added', () => {
     log = new LogTransaction;
     const transaction1 = {date: '22/04/2019', credit: 0, debit: 500.55, balance: 500.55 };
     const transaction2 = {date: '25/05/2019', credit: 150.50, debit: 0, balance: 350.05 };
@@ -42,7 +42,7 @@ describe ('LogTransaction', () => {
     expect(log.returnLog()).toEqual(expect.arrayContaining([transaction1, transaction2, transaction3]));
   });
 
-  test ('toDecimal', () => {
+  test('toDecimal', () => {
     log = new LogTransaction;
     const transaction = {date: '04/18/2022', credit: 0, debit: 372.00, balance: 372.00 };
     expect(log.formatNumbers(transaction)).toEqual({date: '04/18/2022', credit: '', debit: '372.00', balance: '372.00' });

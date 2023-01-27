@@ -7,21 +7,21 @@ describe ('Account', () => {
     jest.resetAllMocks();
   });
   
-  describe ('deposit', () => {
+  describe('deposit', () => {
 
     test('Programme initalizes', () => {
       const account = new Account;
       expect(account.balance).toBe(0);
     });
 
-    test ('calls the validate method on a deposit', () => {
+    test('calls the validate method on a deposit', () => {
       const account = new Account();
       account.validate = jest.fn();
       account.deposit({date: '01/01/2022', credit: 500.00, debit: 0});
       expect(account.validate).toHaveBeenCalled();
     });
     
-    test ('updates the balance with a small deposit', () => {
+    test('updates the balance with a small deposit', () => {
       const account = new Account();
       const mockValidate = jest.fn().mockReturnValue(true);
       account.validate = mockValidate;
@@ -30,7 +30,7 @@ describe ('Account', () => {
       expect(account.balance).toEqual(500.00);
     });
     
-    test ('Updates balance with two deposits ', () => {
+    test('Updates balance with two deposits ', () => {
       const account = new Account();
       const mockValidate = jest.fn().mockReturnValue(true);
       account.validate = mockValidate;
@@ -40,7 +40,7 @@ describe ('Account', () => {
       expect(account.balance).toEqual(480.00);
     });
 
-    test ('calls the validate method on a large valid deposit', () => {
+    test('calls the validate method on a large valid deposit', () => {
       const account = new Account();
       const mockValidate = jest.fn().mockReturnValue(true);
       account.validate = mockValidate;
@@ -49,7 +49,7 @@ describe ('Account', () => {
       expect(account.balance).toEqual(999.00);
     });
 
-    test ('Invalid deposit isnt added to balance', () => {
+    test('Invalid deposit isnt added to balance', () => {
       const account = new Account();
       const mockValidate = jest.fn().mockReturnValue(false);
       account.validate = mockValidate;
@@ -58,7 +58,7 @@ describe ('Account', () => {
       expect(account.balance).toEqual(0);
     });
 
-    test ('Invalid deposit followed by valid deposit', () => {
+    test('Invalid deposit followed by valid deposit', () => {
       const account = new Account();
       const mockValidateFalse = jest.fn().mockReturnValue(false);
       account.validate = mockValidateFalse;
@@ -71,9 +71,9 @@ describe ('Account', () => {
     });
   });
 
-  describe ('withdraw', () => {
+  describe('withdraw', () => {
 
-    test ('calls the validate method on a deposit', () => {
+    test('calls the validate method on a deposit', () => {
       const account = new Account();
       // Create a mock for the validate method
       account.validate = jest.fn();
@@ -81,7 +81,7 @@ describe ('Account', () => {
       expect(account.validate).toHaveBeenCalled();
     });
 
-    test ('updates the balance with a small deposit', () => {
+    test('updates the balance with a small deposit', () => {
       const account = new Account();
       const mockValidate = jest.fn().mockReturnValue(true);
       account.validate = mockValidate;
@@ -91,7 +91,7 @@ describe ('Account', () => {
       expect(account.balance).toEqual(53.00);
     });
 
-    test ('updates the balance with a large withdrawl', () => {
+    test('updates the balance with a large withdrawl', () => {
       const account = new Account();
       const mockValidate = jest.fn().mockReturnValue(true);
       account.validate = mockValidate;
@@ -101,7 +101,7 @@ describe ('Account', () => {
       expect(account.balance).toEqual(4001.00);
     });
 
-    test ('updates the balance with two withdrawls', () => {
+    test('updates the balance with two withdrawls', () => {
       const account = new Account();
       const mockValidate = jest.fn().mockReturnValue(true);
       account.validate = mockValidate;
@@ -112,7 +112,7 @@ describe ('Account', () => {
       expect(account.balance).toEqual(2755.00);
     });
 
-    test ('Invalid withdrawl isnt taken to balance', () => {
+    test('Invalid withdrawl isnt taken to balance', () => {
       const account = new Account();
       const mockValidate = jest.fn().mockReturnValue(false);
       account.validate = mockValidate;
@@ -122,7 +122,7 @@ describe ('Account', () => {
       expect(account.balance).toEqual(5000.00);
     });
 
-    test ('valid withdraw object that exceeds account funds', () => {
+    test('valid withdraw object that exceeds account funds', () => {
       const account = new Account();
       const mockValidate = jest.fn().mockReturnValue(true);
       account.validate = mockValidate;
@@ -132,7 +132,7 @@ describe ('Account', () => {
       expect(account.balance).toEqual(10.00);
     });
 
-    test ('valid withdraw object that exceeds account funds', () => {
+    test('valid withdraw object that exceeds account funds', () => {
       const account = new Account();
       const mockValidate = jest.fn().mockReturnValue(false);
       account.validate = mockValidate;
@@ -147,7 +147,7 @@ describe ('Account', () => {
 
   });
 
-  describe ('validateTransaction', () => {
+  describe('validateTransaction', () => {
 
     test('validator class method used', () => {
       const validator = {
@@ -172,7 +172,7 @@ describe ('Account', () => {
     });
   });
 
-  describe ('addBalance', () => {
+  describe('addBalance', () => {
 
     test('the current balance is added to a transaction', () => {
       const account = new Account;
@@ -184,7 +184,7 @@ describe ('Account', () => {
     
   });
  
-  describe ('logTransaction', () => {
+  describe('logTransaction', () => {
 
     test('logTransaction class method used', () => {
       const account = new Account;
@@ -198,7 +198,7 @@ describe ('Account', () => {
     
   });
 
-  describe ('printStatement', () => {
+  describe('printStatement', () => {
     test('printStatement class method used', () => {
       const account = new Account;
       const printStatement = {

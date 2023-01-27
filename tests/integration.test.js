@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const Account = require('../src/Account');
+const Account = require('../src/account');
 
 describe ('integration', () => {
   

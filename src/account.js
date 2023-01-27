@@ -1,32 +1,29 @@
-const Validator = require ('./Validator');
-const LogTransaction = require ('./LogTransaction');
-const PrintStatement = require('./PrintStatement');
+const Validator = require ('./validator');
+const LogTransaction = require ('./logTransaction');
+const PrintStatement = require('./printStatement');
 
 class Account {
   constructor() {
     this.balance = 0;
     this.log = new LogTransaction;
-  }
-  
+  } 
 
   validate(transaction, validator = new Validator()) {
     const validate = validator.validate(this.balance,transaction);
-    if (validate === true){
+    if(validate === true){
       return validate;
     } else {
-      throw Error ('Invalid Transaction');
+      throw Error('Invalid Transaction');
     }
-   
   }
   
   deposit(transaction) {
-    if (this.validate(transaction) === true){
+    if(this.validate(transaction) === true){
       this.balance += transaction.debit;
       this.addBalance(transaction);
       this.logTransaction(transaction);
     }
   }
- 
 
   withdraw(transaction) {
     if (this.validate(transaction) === true && this.balance >= transaction.credit){
@@ -45,11 +42,8 @@ class Account {
     this.log.add(transaction);
   }
 
-  printStatement(statement = new PrintStatement(this.log.returnLog()),) {
+  printStatement(statement = new PrintStatement(this.log.returnLog())) {
     return statement.print();
   }
-
- 
 }
-
 module.exports = Account;

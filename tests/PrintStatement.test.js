@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
-const PrintStatement = require('../src/PrintStatement');
+const PrintStatement = require('../src/printStatement');
 
-require('../src/PrintStatement');
+require('../src/printStatement');
 
 describe('PrintStatment', () => {
 
-  test ('format and print a single transaction', () => {
+  test('format and print a single transaction', () => {
     const log = [{date: '30/11/2022', credit: '', debit: 333.33, balance: 333.33 }];
     const statement = new PrintStatement(log);
     const expectedStatement =
@@ -14,7 +14,7 @@ describe('PrintStatment', () => {
       
   });
 
-  test ('format and print 3 transaction', () => {
+  test('format and print 3 transaction', () => {
     const log = [{date: '30/11/2022', credit: '', debit: 333.33, balance: 333.33 },
       {date: '05/06/2022', credit: 111.11, debit: '', balance: 222.22 },
       {date: '07/07/2022', credit: '', debit: 222.22, balance: 444.44 }];
@@ -26,7 +26,7 @@ describe('PrintStatment', () => {
       
   });
 
-  test ('no transactions to print', () => {
+  test('no transactions to print', () => {
     const log = [];
     const statement = new PrintStatement(log);
     expect(() => {
@@ -34,7 +34,7 @@ describe('PrintStatment', () => {
     }).toThrow('No transactions to print');
   });
 
-  test ('formats a statement before printng', () => {
+  test('formats a statement before printng', () => {
     const statement = new PrintStatement([{date: '30/11/2022', credit: '', debit: 333.33, balance: 333.33} ]);
     const expectedStatement =
     'date || credit || debit || balance\n30/11/2022 ||  || 333.33 || 333.33\n';
