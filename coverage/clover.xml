@@ -1,15 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1674667489268" clover="3.2.0">
-  <project timestamp="1674667489268" name="All files">
-    <metrics statements="48" coveredstatements="48" conditionals="23" coveredconditionals="23" methods="15" coveredmethods="15" elements="86" coveredelements="86" complexity="0" loc="48" ncloc="48" packages="1" files="4" classes="4"/>
+<coverage generated="1674822529176" clover="3.2.0">
+  <project timestamp="1674822529177" name="All files">
+    <metrics statements="57" coveredstatements="57" conditionals="27" coveredconditionals="27" methods="16" coveredmethods="16" elements="100" coveredelements="100" complexity="0" loc="57" ncloc="57" packages="1" files="4" classes="4"/>
+    <file name="Account.js" path="/Users/josh/projects/Bank-Tech-Test/src/Account.js">
+      <metrics statements="22" coveredstatements="22" conditionals="10" coveredconditionals="10" methods="7" coveredmethods="7"/>
+      <line num="1" count="2" type="stmt"/>
+      <line num="2" count="2" type="stmt"/>
+      <line num="3" count="2" type="stmt"/>
+      <line num="7" count="20" type="stmt"/>
+      <line num="8" count="20" type="stmt"/>
+      <line num="13" count="7" type="stmt"/>
+      <line num="14" count="7" type="cond" truecount="2" falsecount="0"/>
+      <line num="15" count="6" type="stmt"/>
+      <line num="17" count="1" type="stmt"/>
+      <line num="23" count="11" type="cond" truecount="2" falsecount="0"/>
+      <line num="24" count="8" type="stmt"/>
+      <line num="25" count="8" type="stmt"/>
+      <line num="26" count="8" type="stmt"/>
+      <line num="32" count="11" type="cond" truecount="4" falsecount="0"/>
+      <line num="33" count="7" type="stmt"/>
+      <line num="34" count="7" type="stmt"/>
+      <line num="35" count="7" type="stmt"/>
+      <line num="40" count="16" type="stmt"/>
+      <line num="41" count="16" type="stmt"/>
+      <line num="45" count="16" type="stmt"/>
+      <line num="49" count="2" type="stmt"/>
+      <line num="55" count="2" type="stmt"/>
+    </file>
     <file name="LogTransaction.js" path="/Users/josh/projects/Bank-Tech-Test/src/LogTransaction.js">
-      <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
-      <line num="4" count="24" type="stmt"/>
+      <metrics statements="15" coveredstatements="15" conditionals="6" coveredconditionals="6" methods="4" coveredmethods="4"/>
+      <line num="4" count="25" type="stmt"/>
       <line num="8" count="21" type="stmt"/>
-      <line num="12" count="5" type="cond" truecount="2" falsecount="0"/>
-      <line num="13" count="1" type="stmt"/>
-      <line num="15" count="4" type="stmt"/>
-      <line num="20" count="3" type="stmt"/>
+      <line num="9" count="21" type="stmt"/>
+      <line num="13" count="22" type="cond" truecount="2" falsecount="0"/>
+      <line num="14" count="12" type="stmt"/>
+      <line num="15" count="10" type="stmt"/>
+      <line num="17" count="22" type="cond" truecount="2" falsecount="0"/>
+      <line num="18" count="10" type="stmt"/>
+      <line num="19" count="12" type="stmt"/>
+      <line num="21" count="22" type="stmt"/>
+      <line num="22" count="22" type="stmt"/>
+      <line num="26" count="5" type="cond" truecount="2" falsecount="0"/>
+      <line num="27" count="1" type="stmt"/>
+      <line num="29" count="4" type="stmt"/>
+      <line num="34" count="3" type="stmt"/>
     </file>
     <file name="PrintStatement.js" path="/Users/josh/projects/Bank-Tech-Test/src/PrintStatement.js">
       <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
@@ -36,31 +70,6 @@
       <line num="12" count="10" type="stmt"/>
       <line num="14" count="5" type="stmt"/>
       <line num="18" count="3" type="stmt"/>
-    </file>
-    <file name="account.js" path="/Users/josh/projects/Bank-Tech-Test/src/account.js">
-      <metrics statements="22" coveredstatements="22" conditionals="10" coveredconditionals="10" methods="7" coveredmethods="7"/>
-      <line num="1" count="2" type="stmt"/>
-      <line num="2" count="2" type="stmt"/>
-      <line num="3" count="2" type="stmt"/>
-      <line num="7" count="20" type="stmt"/>
-      <line num="8" count="20" type="stmt"/>
-      <line num="13" count="7" type="stmt"/>
-      <line num="14" count="7" type="cond" truecount="2" falsecount="0"/>
-      <line num="15" count="6" type="stmt"/>
-      <line num="17" count="1" type="stmt"/>
-      <line num="23" count="11" type="cond" truecount="2" falsecount="0"/>
-      <line num="24" count="8" type="stmt"/>
-      <line num="25" count="8" type="stmt"/>
-      <line num="26" count="8" type="stmt"/>
-      <line num="32" count="11" type="cond" truecount="4" falsecount="0"/>
-      <line num="33" count="7" type="stmt"/>
-      <line num="34" count="7" type="stmt"/>
-      <line num="35" count="7" type="stmt"/>
-      <line num="40" count="16" type="stmt"/>
-      <line num="41" count="16" type="stmt"/>
-      <line num="45" count="16" type="stmt"/>
-      <line num="49" count="2" type="stmt"/>
-      <line num="55" count="2" type="stmt"/>
     </file>
   </project>
 </coverage>

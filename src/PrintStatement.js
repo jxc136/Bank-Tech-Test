@@ -3,17 +3,17 @@ class PrintStatement {
     this.log = log;
     this.statement = '';
   }
-  format(){    
+  format(){ 
     let statement = 'date || credit || debit || balance\n';
     this.log.reverse().forEach(transaction => {
       statement += `${transaction.date} || ` +
-                  `${transaction.credit.toFixed(2)} || ` +
-                  `${transaction.debit.toFixed(2)} || ` +
-                  `${transaction.balance.toFixed(2)}\n`;
+                  `${transaction.credit} || ` +
+                  `${transaction.debit} || ` +
+                  `${transaction.balance}\n`;
     });
     this.statement = statement;
   }
-  
+
   print(){
     this.format();
     if (this.statement === 'date || credit || debit || balance\n') {

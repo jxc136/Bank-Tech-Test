@@ -26,7 +26,9 @@ describe ('LogTransaction', () => {
     const transaction2 = {date: '11/30/2022', credit: 150.50, debit: 0, balance: 350.05 };
     log.add(transaction1);
     log.add(transaction2);
-    expect(log.returnLog()).toEqual(expect.arrayContaining([transaction1, transaction2]));
+    const newTransaction1 = {date: '11/30/2022', credit: '', debit: '500.55', balance: '500.55' };
+    const newTransaction2 = {date: '11/30/2022', credit: '150.50', debit: '', balance: '350.05' };
+    expect(log.returnLog()).toEqual(expect.arrayContaining([newTransaction1, newTransaction2]));
   });
 
   test ( 'Two valid transactions added', () => {
@@ -39,5 +41,12 @@ describe ('LogTransaction', () => {
     log.add(transaction3);
     expect(log.returnLog()).toEqual(expect.arrayContaining([transaction1, transaction2, transaction3]));
   });
+
+  test ('toDecimal', () => {
+    log = new LogTransaction;
+    const transaction = {date: '04/18/2022', credit: 0, debit: 372.00, balance: 372.00 };
+    expect(log.formatNumbers(transaction)).toEqual({date: '04/18/2022', credit: '', debit: '372.00', balance: '372.00' });
+  });
+
 
 });
