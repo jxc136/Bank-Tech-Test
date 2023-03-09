@@ -10,12 +10,11 @@ class Account {
   }
 
   validate(transaction, validator = new Validator()) {
-    const validate = validator.validate(this.balance, transaction);
-    if (validate === true) {
-      return validate;
-    } else {
-      throw Error("Invalid Transaction");
+    const isValid = validator.validate(this.balance, transaction);
+    if (!isValid) {
+      throw new Error("Invalid Transaction");
     }
+    return isValid;
   }
 
   deposit(transaction) {
