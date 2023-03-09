@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 const Validator = require("./validator");
 const LogTransaction = require("./logTransaction");
 const PrintStatement = require("./printStatement");

@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 class Validator {
   validate(balance, transaction) {
     const validDebit = typeof transaction.debit === "number";
